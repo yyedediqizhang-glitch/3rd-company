@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light" data-size="100"
+      data-title-en="Accessibility — 3RD Company" data-title-zh="無障礙 — 3RD 公司">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility — 3RD Company</title>
+  <meta name="description" content="How this site supports screen readers, keyboard navigation, larger text, dark mode and bilingual reading.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Apply saved preferences before the first paint to avoid a flash. */
+    (function () {
+      var d = document.documentElement, p = {};
+      try { p = JSON.parse(localStorage.getItem("3rd-prefs") || "{}") || {}; } catch (e) { p = {}; }
+      var lang = p.lang === "zh" ? "zh" : "en";
+      var theme = (p.theme === "dark" || p.theme === "light") ? p.theme
+        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var sizes = [100, 110, 125, 140];
+      var size = sizes.indexOf(p.size) !== -1 ? p.size : 100;
+      d.setAttribute("data-lang", lang);
+      d.setAttribute("lang", lang === "zh" ? "zh-Hant" : "en");
+      d.setAttribute("data-theme", theme);
+      d.setAttribute("data-size", String(size));
+      d.style.fontSize = size + "%";
+      d.className += " js";
+      window.__3rd = { lang: lang, theme: theme, size: size };
+    })();
+  </script>
+</head>
+<body class="site">
+
+  <a class="skip-link" href="#main">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-zh" lang="zh-Hant">跳至主要內容</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="currentColor" opacity="0.13"/>
+            <path d="M24 9.5 38 17v14L24 38.5 10 31V17z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M10 17l14 7.5L38 17M24 24.5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <span class="brand-name">3RD Company</span>
+            <span class="brand-tag"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="lang-en">Menu</span><span class="lang-zh" lang="zh-Hant">選單</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-aria-en="Main menu" data-aria-zh="主選單" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="toolbar">
+        <div class="control-group" role="group" data-aria-en="Language" data-aria-zh="語言" aria-label="Language">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Language</span><span class="lang-zh" lang="zh-Hant">語言</span></span>
+          <button class="seg" type="button" data-lang-set="en" lang="en" aria-pressed="true">EN</button>
+          <button class="seg" type="button" data-lang-set="zh" lang="zh-Hant" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="control-group" role="group" data-aria-en="Text size" data-aria-zh="字級" aria-label="Text size">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級</span></span>
+          <button class="icon-btn" type="button" data-size-step="-1"
+                  data-aria-en="Smaller text" data-aria-zh="縮小字級" aria-label="Smaller text">A−</button>
+          <span class="size-value" data-size-value aria-hidden="true">100%</span>
+          <button class="icon-btn" type="button" data-size-step="1"
+                  data-aria-en="Larger text" data-aria-zh="放大字級" aria-label="Larger text">A+</button>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Display</span><span class="lang-zh" lang="zh-Hant">顯示</span></span>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="導覽路徑" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><span aria-current="page"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span class="lang-en">Everyone should be able to read this</span><span class="lang-zh" lang="zh-Hant">每個人都應該讀得到</span></p>
+        <h1><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></h1>
+        <p class="lead"><span class="lang-en">This site is built so that people using screen readers, keyboard navigation or magnification can use it — not as an afterthought, but as part of the design.</span><span class="lang-zh" lang="zh-Hant">這個網站是為了讓使用螢幕閱讀器、鍵盤操作或放大工具的人也能使用而建——不是事後補救，而是設計的一部分。</span></p>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="statement">
+      <div class="container">
+
+      <div class="split split--wide-right">
+        <div>
+          <h2 id="statement"><span class="lang-en">Our commitment</span><span class="lang-zh" lang="zh-Hant">我們的承諾</span></h2>
+        </div>
+        <div class="prose">
+          <p><span class="lang-en">We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA. This site is a student prototype for a university course, so it has not been independently audited — where we know of a limitation, it is listed below rather than hidden.</span><span class="lang-zh" lang="zh-Hant">我們以《無障礙網頁內容指引》（WCAG）2.1 AA 級為目標。這個網站是大學課程的學生原型，因此未經獨立審核——我們已知的限制會列在下方，而不是隱藏起來。</span></p>
+          <p><span class="lang-en">Accessibility matters to this project for a practical reason. If our aim is to make technology available to people who are usually left out, the way we present our own work should not exclude anyone either.</span><span class="lang-zh" lang="zh-Hant">無障礙對這個專案有實際的理由。如果我們的目標是讓平常被忽略的人也能使用科技，那麼我們呈現自己工作的方式，也不應該排擠任何人。</span></p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="features">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="features"><span class="lang-en">What is built in</span><span class="lang-zh" lang="zh-Hant">已加入的功能</span></h2>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級調整</span></h3>
+          <p><span class="lang-en">The A− and A+ buttons in the header change the whole page between 100% and 140%. The layout is built in relative units, so it reflows instead of clipping. Your choice is remembered on this device.</span><span class="lang-zh" lang="zh-Hant">標題列的 A− 與 A+ 按鈕，可以把整個頁面在 100% 至 140% 之間調整。版面以相對單位建立，因此會重新排版，而不是被裁切。你的選擇會在此裝置上保留。</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="lang-en">Light and dark themes</span><span class="lang-zh" lang="zh-Hant">深色與淺色主題</span></h3>
+          <p><span class="lang-en">The sun and moon button switches theme, and the page follows your operating system setting until you choose. Both themes keep text contrast at 4.5:1 or better.</span><span class="lang-zh" lang="zh-Hant">太陽與月亮按鈕可切換主題；在你自行選擇之前，頁面會跟隨作業系統設定。兩個主題的文字對比度都維持在 4.5:1 或以上。</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="lang-en">Two languages</span><span class="lang-zh" lang="zh-Hant">雙語</span></h3>
+          <p><span class="lang-en">Every page is available in English and Traditional Chinese. The page language attribute changes with the content, so a screen reader uses the right pronunciation rules.</span><span class="lang-zh" lang="zh-Hant">每一頁都提供英文及繁體中文版本。頁面的語言標記會隨內容改變，螢幕閱讀器因此會使用正確的發音規則。</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="lang-en">Screen readers</span><span class="lang-zh" lang="zh-Hant">螢幕閱讀器</span></h3>
+          <p><span class="lang-en">Pages use landmarks, one main heading, a logical heading order, and a skip link as the first focusable item. Decorative graphics are hidden from assistive technology; nothing important is described only by an image.</span><span class="lang-zh" lang="zh-Hant">頁面使用地標區域、單一主標題、合乎層級的標題順序，並以「跳至主要內容」作為第一個可聚焦項目。裝飾性圖形不會被輔助技術讀出；重要資訊不會只以圖像表達。</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="lang-en">Keyboard only</span><span class="lang-zh" lang="zh-Hant">純鍵盤操作</span></h3>
+          <p><span class="lang-en">Every control works with Tab, Enter and Space, focus is always visible, and the mobile menu closes with Escape. There are no keyboard traps and nothing is triggered automatically by hovering.</span><span class="lang-zh" lang="zh-Hant">所有控制項都可以用 Tab、Enter 及空格鍵操作，焦點永遠可見，手機版選單可按 Escape 關閉。沒有鍵盤陷阱，也沒有隻靠滑鼠停留才觸發的內容。</span></p>
+        </article>
+        <article class="card">
+          <h3><span class="lang-en">Motion and forms</span><span class="lang-zh" lang="zh-Hant">動態效果與表格</span></h3>
+          <p><span class="lang-en">Animation is minimal and respects the reduced-motion setting. Form fields have visible labels, hints, and error messages tied to the field, and errors are announced and focused.</span><span class="lang-zh" lang="zh-Hant">動態效果極少，並尊重系統的「減少動態」設定。表格欄位有可見標籤、提示，以及與欄位連結的錯誤訊息；錯誤會被讀出並把焦點移到出錯的欄位。</span></p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="how-to">
+      <div class="container">
+
+      <div class="split">
+        <div>
+          <h2 id="how-to"><span class="lang-en">Using the controls</span><span class="lang-zh" lang="zh-Hant">如何使用這些控制</span></h2>
+          <p><span class="lang-en">The three controls sit under the main menu on every page.</span><span class="lang-zh" lang="zh-Hant">三個控制項位於每一頁的主選單下方。</span></p>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><span class="lang-en">Language — the EN and Chinese buttons. The current language is marked as pressed.</span><span class="lang-zh" lang="zh-Hant">語言——EN 與「中文」按鈕。目前語言會標示為已按下。</span></li>
+            <li><span class="lang-en">Text size — A− makes text smaller, A+ makes it larger. The current percentage is shown between them.</span><span class="lang-zh" lang="zh-Hant">字級——A− 縮小文字，A+ 放大文字，中間會顯示目前的百分比。</span></li>
+            <li><span class="lang-en">Theme — the sun or moon button switches between light and dark.</span><span class="lang-zh" lang="zh-Hant">主題——太陽或月亮按鈕，在淺色與深色之間切換。</span></li>
+            <li><span class="lang-en">All three choices are saved in this browser only. Clearing site data resets them.</span><span class="lang-zh" lang="zh-Hant">三個選擇只會儲存在這個瀏覽器。清除網站資料即會重設。</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="limits">
+      <div class="container">
+
+      <div class="split">
+        <div>
+          <h2 id="limits"><span class="lang-en">Known limitations</span><span class="lang-zh" lang="zh-Hant">已知限制</span></h2>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><span class="lang-en">The site has not been tested with every screen reader and browser combination. We have tested with Windows Narrator, NVDA and keyboard-only navigation.</span><span class="lang-zh" lang="zh-Hant">網站未經所有螢幕閱讀器與瀏覽器組合測試。我們以 Windows 朗讀程式、NVDA 及純鍵盤操作測試過。</span></li>
+            <li><span class="lang-en">The contact form is a prototype: it validates input but does not send or store it.</span><span class="lang-zh" lang="zh-Hant">聯絡表格是原型：會檢查輸入，但不會送出或儲存。</span></li>
+            <li><span class="lang-en">There is no audio or video content, so no captions are needed yet.</span><span class="lang-zh" lang="zh-Hant">目前沒有音訊或影片內容，因此暫無字幕需要。</span></li>
+            <li><span class="lang-en">A few technical terms (filament, additive manufacturing) appear in English inside the Chinese text, because there is no settled Hong Kong translation.</span><span class="lang-zh" lang="zh-Hant">少數技術詞彙（線材、增材製造）在中文版中會保留英文，因為香港尚未有統一譯法。</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+  <section class="section">
+    <div class="container container--narrow">
+      <h2><span class="lang-en">Tell us what does not work</span><span class="lang-zh" lang="zh-Hant">告訴我們哪裡不能用</span></h2>
+      <p><span class="lang-en">If something on this site blocks you — a control you cannot reach, text you cannot read, a page that does not make sense with a screen reader — please write to</span><span class="lang-zh" lang="zh-Hant">如果這個網站有任何地方阻礙你——無法到達的控制項、讀不到的文字、用螢幕閱讀器讀起來不合理的頁面——請電郵</span>
+        <a href="mailto:accessibility@3rdcompany.hk">accessibility@3rdcompany.hk</a>.
+        <span class="lang-en">We will fix it and say what we changed.</span><span class="lang-zh" lang="zh-Hant">我們會修正，並說明改了什麼。</span></p>
+      <p><a class="btn btn-ghost" href="contact.html"><span class="lang-en">Other ways to contact us</span><span class="lang-zh" lang="zh-Hant">其他聯絡方式</span></a></p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">3RD Company</p>
+          <p class="footer-tagline"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></p>
+          <p class="footer-note"><span class="lang-en">A student project for GEL3027 — Entrepreneurship, innovation and national security education in the context of humanities.</span><span class="lang-zh" lang="zh-Hant">GEL3027「人文脈絡下的創業、創新與國家安全教育」學生專題習作。</span></p>
+        </div>
+
+        <nav data-aria-en="Footer" data-aria-zh="頁尾" aria-label="Footer">
+          <h2><span class="lang-en">Explore</span><span class="lang-zh" lang="zh-Hant">瀏覽</span></h2>
+          <ul>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact &amp; vision</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="accessibility.html"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡</span></h2>
+          <ul>
+            <li><a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><span class="lang-en">Kowloon, Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港九龍</span></li>
+            <li><span class="lang-en">Mon–Fri, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五 10:00–18:00（香港時間）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> 3RD Company. <span class="lang-en">All rights reserved.</span><span class="lang-zh" lang="zh-Hant">版權所有。</span></p>
+        <p><span class="lang-en">Your language, theme and text-size choices are saved in this browser only.</span><span class="lang-zh" lang="zh-Hant">你的語言、主題與字級選擇只會儲存在這個瀏覽器。</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <p class="sr-only" role="status" aria-live="polite" id="a11y-status"></p>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

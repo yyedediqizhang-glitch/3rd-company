@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light" data-size="100"
+      data-title-en="Contact — 3RD Company" data-title-zh="聯絡我們 — 3RD 公司">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — 3RD Company</title>
+  <meta name="description" content="Contact 3RD Company about a school workshop, a community recycling point, a hospital project, volunteering or a partnership.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Apply saved preferences before the first paint to avoid a flash. */
+    (function () {
+      var d = document.documentElement, p = {};
+      try { p = JSON.parse(localStorage.getItem("3rd-prefs") || "{}") || {}; } catch (e) { p = {}; }
+      var lang = p.lang === "zh" ? "zh" : "en";
+      var theme = (p.theme === "dark" || p.theme === "light") ? p.theme
+        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var sizes = [100, 110, 125, 140];
+      var size = sizes.indexOf(p.size) !== -1 ? p.size : 100;
+      d.setAttribute("data-lang", lang);
+      d.setAttribute("lang", lang === "zh" ? "zh-Hant" : "en");
+      d.setAttribute("data-theme", theme);
+      d.setAttribute("data-size", String(size));
+      d.style.fontSize = size + "%";
+      d.className += " js";
+      window.__3rd = { lang: lang, theme: theme, size: size };
+    })();
+  </script>
+</head>
+<body class="site">
+
+  <a class="skip-link" href="#main">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-zh" lang="zh-Hant">跳至主要內容</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="currentColor" opacity="0.13"/>
+            <path d="M24 9.5 38 17v14L24 38.5 10 31V17z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M10 17l14 7.5L38 17M24 24.5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <span class="brand-name">3RD Company</span>
+            <span class="brand-tag"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="lang-en">Menu</span><span class="lang-zh" lang="zh-Hant">選單</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-aria-en="Main menu" data-aria-zh="主選單" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="contact.html" aria-current="page"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="toolbar">
+        <div class="control-group" role="group" data-aria-en="Language" data-aria-zh="語言" aria-label="Language">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Language</span><span class="lang-zh" lang="zh-Hant">語言</span></span>
+          <button class="seg" type="button" data-lang-set="en" lang="en" aria-pressed="true">EN</button>
+          <button class="seg" type="button" data-lang-set="zh" lang="zh-Hant" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="control-group" role="group" data-aria-en="Text size" data-aria-zh="字級" aria-label="Text size">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級</span></span>
+          <button class="icon-btn" type="button" data-size-step="-1"
+                  data-aria-en="Smaller text" data-aria-zh="縮小字級" aria-label="Smaller text">A−</button>
+          <span class="size-value" data-size-value aria-hidden="true">100%</span>
+          <button class="icon-btn" type="button" data-size-step="1"
+                  data-aria-en="Larger text" data-aria-zh="放大字級" aria-label="Larger text">A+</button>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Display</span><span class="lang-zh" lang="zh-Hant">顯示</span></span>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="導覽路徑" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><span aria-current="page"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span class="lang-en">Get in touch</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></p>
+        <h1><span class="lang-en">Talk to us</span><span class="lang-zh" lang="zh-Hant">與我們聯絡</span></h1>
+        <p class="lead"><span class="lang-en">Schools, housing estates, hospitals, universities and companies each work with us in a different way. Tell us what you have in mind.</span><span class="lang-zh" lang="zh-Hant">學校、屋苑、醫院、大學與企業，各自以不同方式與我們合作。告訴我們你在想什麼。</span></p>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="form-heading">
+      <div class="container">
+
+      <div class="split split--wide-right">
+        <div>
+          <h2 id="form-heading"><span class="lang-en">Send an enquiry</span><span class="lang-zh" lang="zh-Hant">送出查詢</span></h2>
+          <p><span class="lang-en">Fields marked with an asterisk are required. This is a prototype: the form checks your input in the browser but does not send anything.</span><span class="lang-zh" lang="zh-Hant">有星號的欄位為必填。這是原型版本：表格只在瀏覽器內檢查你的輸入，不會送出任何資料。</span></p>
+
+          <div class="notice">
+            <p><strong><span class="lang-en">Prototype notice</span><span class="lang-zh" lang="zh-Hant">原型版本說明</span></strong>
+            <span class="lang-en">Nothing you type here leaves your computer and nothing is stored. To reach the team for real, write to hello@3rdcompany.hk.</span><span class="lang-zh" lang="zh-Hant">你在這裡輸入的內容不會離開你的電腦，也不會被儲存。如要真正聯絡團隊，請電郵 hello@3rdcompany.hk。</span></p>
+          </div>
+
+          <ul class="prose" style="padding-left:1.2rem">
+            <li><span class="lang-en">Workshops for schools and community centres</span><span class="lang-zh" lang="zh-Hant">學校及社區中心工作坊</span></li>
+            <li><span class="lang-en">Setting up a plastic collection point</span><span class="lang-zh" lang="zh-Hant">設置塑膠收集點</span></li>
+            <li><span class="lang-en">Hospital and clinic projects</span><span class="lang-zh" lang="zh-Hant">醫院及診所項目</span></li>
+            <li><span class="lang-en">Volunteering, partnerships and media</span><span class="lang-zh" lang="zh-Hant">義工、合作與媒體</span></li>
+          </ul>
+        </div>
+
+        <form class="form" data-contact-form novalidate>
+          <div class="field">
+            <label for="name"><span class="lang-en">Your name <span class="req" aria-hidden="true">*</span></span><span class="lang-zh" lang="zh-Hant">你的姓名 <span class="req" aria-hidden="true">*</span></span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required data-validate
+                   aria-describedby="name-error">
+            <p class="error" id="name-error" hidden>
+              <span class="lang-en error-required">Please enter your name.</span>
+              <span class="lang-zh error-required" lang="zh-Hant">請輸入你的姓名。</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="email"><span class="lang-en">Email address <span class="req" aria-hidden="true">*</span></span><span class="lang-zh" lang="zh-Hant">電郵地址 <span class="req" aria-hidden="true">*</span></span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required data-validate
+                   aria-describedby="email-hint email-error">
+            <p class="field-hint" id="email-hint"><span class="lang-en">We only use this to reply to you.</span><span class="lang-zh" lang="zh-Hant">我們只會用來回覆你。</span></p>
+            <p class="error" id="email-error" hidden>
+              <span class="lang-en error-required">Please enter your email address.</span>
+              <span class="lang-zh error-required" lang="zh-Hant">請輸入你的電郵地址。</span>
+              <span class="lang-en error-email" hidden>That does not look like a complete email address.</span>
+              <span class="lang-zh error-email" lang="zh-Hant" hidden>這個電郵地址似乎並不完整。</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="org"><span class="lang-en">Organisation</span><span class="lang-zh" lang="zh-Hant">機構</span></label>
+            <input id="org" name="org" type="text" autocomplete="organization"
+                   aria-describedby="org-hint">
+            <p class="field-hint" id="org-hint"><span class="lang-en">School, estate, hospital, university or company — optional.</span><span class="lang-zh" lang="zh-Hant">學校、屋苑、醫院、大學或企業——可選填。</span></p>
+          </div>
+
+          <div class="field">
+            <label for="interest"><span class="lang-en">I am interested in</span><span class="lang-zh" lang="zh-Hant">我有興趣的是</span></label>
+            <select id="interest" name="interest" data-opt-lang>
+              <option value="" data-opt-en="Please choose" data-opt-zh="請選擇">Please choose</option>
+              <option value="school" data-opt-en="A workshop for a school" data-opt-zh="學校工作坊">A workshop for a school</option>
+              <option value="community" data-opt-en="A recycling point in my community" data-opt-zh="在社區設置收集點">A recycling point in my community</option>
+              <option value="medical" data-opt-en="A hospital or clinic project" data-opt-zh="醫院或診所項目">A hospital or clinic project</option>
+              <option value="volunteer" data-opt-en="Volunteering" data-opt-zh="成為義工">Volunteering</option>
+              <option value="partner" data-opt-en="Partnership or media enquiry" data-opt-zh="合作或媒體查詢">Partnership or media enquiry</option>
+              <option value="other" data-opt-en="Something else" data-opt-zh="其他">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message"><span class="lang-en">Your message <span class="req" aria-hidden="true">*</span></span><span class="lang-zh" lang="zh-Hant">你的訊息 <span class="req" aria-hidden="true">*</span></span></label>
+            <textarea id="message" name="message" required data-validate
+                      aria-describedby="message-hint message-error"></textarea>
+            <p class="field-hint" id="message-hint"><span class="lang-en">Helpful details: the size of the group, the age range, and any dates you have in mind.</span><span class="lang-zh" lang="zh-Hant">有助我們回覆的資料：人數、年齡組別，以及你希望舉行的日期。</span></p>
+            <p class="error" id="message-error" hidden>
+              <span class="lang-en error-required">Please write a short message.</span>
+              <span class="lang-zh error-required" lang="zh-Hant">請寫下一段簡短訊息。</span>
+            </p>
+          </div>
+
+          <div class="field">
+            <div class="checkbox-row">
+              <input id="consent" name="consent" type="checkbox" required data-validate
+                     aria-describedby="consent-error">
+              <label for="consent"><span class="lang-en">I agree that 3RD Company may contact me about this enquiry.</span><span class="lang-zh" lang="zh-Hant">我同意 3RD 公司就此查詢與我聯絡。</span></label>
+            </div>
+            <p class="error" id="consent-error" hidden>
+              <span class="lang-en error-required">Please tick this box so we can reply.</span>
+              <span class="lang-zh error-required" lang="zh-Hant">請勾選此欄，我們才能回覆你。</span>
+            </p>
+          </div>
+
+          <div>
+            <button class="btn btn-primary" type="submit"><span class="lang-en">Check and send</span><span class="lang-zh" lang="zh-Hant">檢查並送出</span></button>
+          </div>
+
+          <div class="form-status" id="form-status" role="status" tabindex="-1" hidden>
+            <p><strong><span class="lang-en">Your message passed validation.</span><span class="lang-zh" lang="zh-Hant">你的訊息已通過檢查。</span></strong></p>
+            <p><span class="lang-en">This prototype does not send email or store anything. To reach the team, please write to hello@3rdcompany.hk.</span><span class="lang-zh" lang="zh-Hant">這個原型版本不會寄出電郵，也不會儲存任何資料。如要聯絡團隊，請電郵 hello@3rdcompany.hk。</span></p>
+          </div>
+        </form>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="details">
+      <div class="container">
+
+      <div class="split">
+        <div>
+          <h2 id="details"><span class="lang-en">Where to find us</span><span class="lang-zh" lang="zh-Hant">在哪裡找到我們</span></h2>
+          <p><span class="lang-en">We are a student team at a Hong Kong university. Replies may take a few days during term time.</span><span class="lang-zh" lang="zh-Hant">我們是香港一所大學的學生團隊。學期期間，回覆可能需要數天。</span></p>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong><span class="lang-en">Email</span><span class="lang-zh" lang="zh-Hant">電郵</span>:</strong> <a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><strong><span class="lang-en">Workshops</span><span class="lang-zh" lang="zh-Hant">工作坊</span>:</strong> <a href="mailto:workshops@3rdcompany.hk">workshops@3rdcompany.hk</a></li>
+            <li><strong><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span>:</strong> <a href="mailto:accessibility@3rdcompany.hk">accessibility@3rdcompany.hk</a></li>
+            <li><strong><span class="lang-en">Hours</span><span class="lang-zh" lang="zh-Hant">辦公時間</span>:</strong> <span class="lang-en">Monday to Friday, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五，10:00–18:00（香港時間）</span></li>
+            <li><strong><span class="lang-en">Address</span><span class="lang-zh" lang="zh-Hant">地址</span>:</strong> <span class="lang-en">Kowloon, Hong Kong (venue confirmed per workshop)</span><span class="lang-zh" lang="zh-Hant">香港九龍（工作坊地點另行確認）</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="faq">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="faq"><span class="lang-en">Frequently asked questions</span><span class="lang-zh" lang="zh-Hant">常見問題</span></h2>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary><span class="lang-en">Is the recycled plastic safe to print?</span><span class="lang-zh" lang="zh-Hant">回收塑膠可以安全打印嗎？</span></summary>
+          <div class="details-body">
+            <p><span class="lang-en">We accept only clean PET, PP and HDPE (recycling codes 1, 5 and 2). Mixed, dirty or unidentified plastic is rejected at sorting. Prints are not used for food contact, and anything used in a clinical setting is approved by the partner hospital’s own safety process.</span><span class="lang-zh" lang="zh-Hant">我們只接受潔淨的 PET、PP 及 HDPE（回收編號 1、5、2）。混合、污穢或無法辨識的塑膠會在分類階段被剔除。打印成品不會用於接觸食物；任何臨床用途的物件，都須經合作醫院本身的安全程序批准。</span></p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">Do participants need any experience?</span><span class="lang-zh" lang="zh-Hant">參加者需要有經驗嗎？</span></summary>
+          <div class="details-body">
+            <p><span class="lang-en">No. Workshops start with sketching on paper and a short explanation of how a printer works. Most participants print their first object within the session.</span><span class="lang-zh" lang="zh-Hant">不需要。工作坊由紙上草圖開始，並簡單講解打印機的運作。大部分參加者都能在同一節工作坊內打印出自己的第一件作品。</span></p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">What does a workshop cost?</span><span class="lang-zh" lang="zh-Hant">工作坊收費如何？</span></summary>
+          <div class="details-body">
+            <p><span class="lang-en">Community and school workshops are free or charged at cost, because the material comes from plastic we have collected. A custom programme with a venue, materials and staff time is quoted individually.</span><span class="lang-zh" lang="zh-Hant">社區及學校工作坊免費或只收回成本，因為材料來自我們收集的塑膠。如屬度身訂造的計劃，涉及場地、材料與人手，則會另行報價。</span></p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">Can we donate plastic?</span><span class="lang-zh" lang="zh-Hant">可以捐贈塑膠嗎？</span></summary>
+          <div class="details-body">
+            <p><span class="lang-en">Yes, if it is clean and sorted: empty bottles with caps and labels removed, codes 1, 5 and 2 only. Businesses with larger volumes should email us first so we can arrange collection.</span><span class="lang-zh" lang="zh-Hant">可以，只要是潔淨並已分類：空的膠樽，已移除瓶蓋與標籤，只限編號 1、5、2。如屬較大量的商業捐贈，請先電郵聯絡，以便安排收集。</span></p>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">Do you make medical devices?</span><span class="lang-zh" lang="zh-Hant">你們會製作醫療器材嗎？</span></summary>
+          <div class="details-body">
+            <p><span class="lang-en">Not on our own. Medical work is done with the partner hospital’s clinical team, in line with its regulatory, material and sterilisation requirements. Student prototypes are never used in patient care.</span><span class="lang-zh" lang="zh-Hant">我們不會自行製作。醫療項目由合作醫院的臨床團隊參與，並依從其法規、材料及消毒要求。學生原型不會用於病人護理。</span></p>
+          </div>
+        </details>
+      </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">3RD Company</p>
+          <p class="footer-tagline"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></p>
+          <p class="footer-note"><span class="lang-en">A student project for GEL3027 — Entrepreneurship, innovation and national security education in the context of humanities.</span><span class="lang-zh" lang="zh-Hant">GEL3027「人文脈絡下的創業、創新與國家安全教育」學生專題習作。</span></p>
+        </div>
+
+        <nav data-aria-en="Footer" data-aria-zh="頁尾" aria-label="Footer">
+          <h2><span class="lang-en">Explore</span><span class="lang-zh" lang="zh-Hant">瀏覽</span></h2>
+          <ul>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact &amp; vision</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="accessibility.html"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡</span></h2>
+          <ul>
+            <li><a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><span class="lang-en">Kowloon, Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港九龍</span></li>
+            <li><span class="lang-en">Mon–Fri, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五 10:00–18:00（香港時間）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> 3RD Company. <span class="lang-en">All rights reserved.</span><span class="lang-zh" lang="zh-Hant">版權所有。</span></p>
+        <p><span class="lang-en">Your language, theme and text-size choices are saved in this browser only.</span><span class="lang-zh" lang="zh-Hant">你的語言、主題與字級選擇只會儲存在這個瀏覽器。</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <p class="sr-only" role="status" aria-live="polite" id="a11y-status"></p>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

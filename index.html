@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light" data-size="100"
+      data-title-en="3RD Company — 3D printing for a more inclusive society" data-title-zh="3RD 公司 — 打印一個更共融的社會">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3RD Company — 3D printing for a more inclusive society</title>
+  <meta name="description" content="3RD Company is a Hong Kong social enterprise that turns collected plastic waste into 3D-printed learning, community workshops and low-cost medical aids.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Apply saved preferences before the first paint to avoid a flash. */
+    (function () {
+      var d = document.documentElement, p = {};
+      try { p = JSON.parse(localStorage.getItem("3rd-prefs") || "{}") || {}; } catch (e) { p = {}; }
+      var lang = p.lang === "zh" ? "zh" : "en";
+      var theme = (p.theme === "dark" || p.theme === "light") ? p.theme
+        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var sizes = [100, 110, 125, 140];
+      var size = sizes.indexOf(p.size) !== -1 ? p.size : 100;
+      d.setAttribute("data-lang", lang);
+      d.setAttribute("lang", lang === "zh" ? "zh-Hant" : "en");
+      d.setAttribute("data-theme", theme);
+      d.setAttribute("data-size", String(size));
+      d.style.fontSize = size + "%";
+      d.className += " js";
+      window.__3rd = { lang: lang, theme: theme, size: size };
+    })();
+  </script>
+</head>
+<body class="site">
+
+  <a class="skip-link" href="#main">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-zh" lang="zh-Hant">跳至主要內容</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="currentColor" opacity="0.13"/>
+            <path d="M24 9.5 38 17v14L24 38.5 10 31V17z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M10 17l14 7.5L38 17M24 24.5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <span class="brand-name">3RD Company</span>
+            <span class="brand-tag"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="lang-en">Menu</span><span class="lang-zh" lang="zh-Hant">選單</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-aria-en="Main menu" data-aria-zh="主選單" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html" aria-current="page"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="toolbar">
+        <div class="control-group" role="group" data-aria-en="Language" data-aria-zh="語言" aria-label="Language">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Language</span><span class="lang-zh" lang="zh-Hant">語言</span></span>
+          <button class="seg" type="button" data-lang-set="en" lang="en" aria-pressed="true">EN</button>
+          <button class="seg" type="button" data-lang-set="zh" lang="zh-Hant" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="control-group" role="group" data-aria-en="Text size" data-aria-zh="字級" aria-label="Text size">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級</span></span>
+          <button class="icon-btn" type="button" data-size-step="-1"
+                  data-aria-en="Smaller text" data-aria-zh="縮小字級" aria-label="Smaller text">A−</button>
+          <span class="size-value" data-size-value aria-hidden="true">100%</span>
+          <button class="icon-btn" type="button" data-size-step="1"
+                  data-aria-en="Larger text" data-aria-zh="放大字級" aria-label="Larger text">A+</button>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Display</span><span class="lang-zh" lang="zh-Hant">顯示</span></span>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow"><span class="lang-en">Hong Kong · Social enterprise</span><span class="lang-zh" lang="zh-Hant">香港 · 社會企業</span></p>
+        <h1><span class="lang-en">3D printing for a more inclusive society</span><span class="lang-zh" lang="zh-Hant">打印一個更共融的社會</span></h1>
+        <p class="lead"><span class="lang-en">We collect the plastic Hong Kong throws away and turn it into something useful: classroom learning, neighbourhood workshops, and low-cost aids for patients and carers.</span><span class="lang-zh" lang="zh-Hant">我們收集香港被丟棄的塑膠，把它變成有用的東西：課堂學習、社區工作坊，以及病人與照顧者都負擔得起的輔助器具。</span></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="programmes.html"><span class="lang-en">Explore our programmes</span><span class="lang-zh" lang="zh-Hant">探索我們的計劃</span></a>
+          <a class="btn btn-ghost" href="about.html"><span class="lang-en">Read our story</span><span class="lang-zh" lang="zh-Hant">了解我們的故事</span></a>
+        </div>
+        <div class="pill-row">
+          <span class="pill"><span class="lang-en">3R — reduce · reuse · recycle</span><span class="lang-zh" lang="zh-Hant">3R：減用 · 重用 · 回收</span></span>
+          <span class="pill"><span class="lang-en">3D — additive manufacturing</span><span class="lang-zh" lang="zh-Hant">3D：增材製造</span></span>
+          <span class="pill"><span class="lang-en">Made in Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港製造</span></span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg class="hero-svg" viewBox="0 0 460 380" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="layerGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="var(--brand)" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="var(--brand-strong)" stop-opacity="0.8"/>
+            </linearGradient>
+          </defs>
+          <circle cx="230" cy="190" r="152" fill="none" stroke="var(--border)" stroke-width="1.6" stroke-dasharray="7 9"/>
+          <rect x="96" y="60" width="268" height="258" rx="22" fill="var(--surface-2)" stroke="var(--border)" stroke-width="1.6"/>
+          <path d="M116 104v158M344 104v158" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" opacity="0.22"/>
+          <rect x="112" y="92" width="236" height="9" rx="4.5" fill="var(--brand)" opacity="0.7"/>
+          <rect x="208" y="104" width="44" height="30" rx="7" fill="var(--brand)"/>
+          <path d="M222 134h16l-4 14h-8z" fill="var(--brand-strong)"/>
+          <path d="M230 152v10" stroke="var(--brand-strong)" stroke-width="2.5" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <circle cx="230" cy="167" r="3.4" fill="var(--accent)"/>
+          <rect x="128" y="268" width="204" height="10" rx="5" fill="var(--brand)" opacity="0.45"/>
+          <rect x="184" y="253" width="92" height="13" rx="3" fill="url(#layerGrad)" opacity="0.45"/>
+          <rect x="190" y="238" width="80" height="13" rx="3" fill="url(#layerGrad)" opacity="0.58"/>
+          <rect x="195" y="223" width="70" height="13" rx="3" fill="url(#layerGrad)" opacity="0.72"/>
+          <rect x="201" y="208" width="58" height="13" rx="3" fill="url(#layerGrad)" opacity="0.85"/>
+          <rect x="208" y="193" width="44" height="13" rx="3" fill="url(#layerGrad)"/>
+          <rect x="216" y="178" width="28" height="13" rx="3" fill="url(#layerGrad)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+
+    <section class="section" aria-labelledby="pillars">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="pillars"><span class="lang-en">Three places we work</span><span class="lang-zh" lang="zh-Hant">我們工作的三個場景</span></h2>
+        <p><span class="lang-en">The same idea runs through each programme: plastic that would be thrown away becomes something a person can use.</span><span class="lang-zh" lang="zh-Hant">同一個想法貫穿三個計劃：原本會被丟棄的塑膠，變成真正有人用得著的東西。</span></p>
+      </div>
+      
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 8.5 12 4l9.5 4.5L12 13z"/><path d="M6 10.6V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.4"/><path d="M21.5 8.5V14"/></svg></span>
+          <h3><span class="lang-en">Educate</span><span class="lang-zh" lang="zh-Hant">教育</span></h3>
+          <p><span class="lang-en">Students learn by making — anatomy models printed in class, then volunteering to teach the next group how to sort plastic and run a printer.</span><span class="lang-zh" lang="zh-Hant">學生從動手做中學習：在課堂打印人體解剖模型，然後成為義工，教下一班同學分類塑膠和操作打印機。</span></p>
+        <a class="card-link" href="programmes.html#education"><span class="lang-en">Education programme</span><span class="lang-zh" lang="zh-Hant">教育計劃</span> →</a>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M3.5 19.5c0-3.1 2.4-5.3 5.5-5.3s5.5 2.2 5.5 5.3"/><path d="M16.2 14.6c2.4.3 4 2.1 4 4.9"/></svg></span>
+          <h3><span class="lang-en">Community</span><span class="lang-zh" lang="zh-Hant">社區</span></h3>
+          <p><span class="lang-en">We place collection points for clean PET, PP and HDPE bottles in housing estates, and reward residents with supermarket vouchers.</span><span class="lang-zh" lang="zh-Hant">我們在屋苑設置收集點，回收潔淨的 PET、PP 及 HDPE 膠樽，並以超市禮券回饋居民。</span></p>
+        <a class="card-link" href="programmes.html#community"><span class="lang-en">Community programme</span><span class="lang-zh" lang="zh-Hant">社區計劃</span> →</a>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.3 6.2a4.6 4.6 0 0 0-6.5 0L12 8l-1.8-1.8a4.6 4.6 0 1 0-6.5 6.5L12 21l8.3-8.3a4.6 4.6 0 0 0 0-6.5Z"/><path d="M5.8 12h2.7l1.4-2.3 2 4.6 1.4-2.3h2.9"/></svg></span>
+          <h3><span class="lang-en">Medical</span><span class="lang-zh" lang="zh-Hant">醫療</span></h3>
+          <p><span class="lang-en">Hospitals can turn their own clean plastic waste into customised prosthetics, dental models and surgical practice models.</span><span class="lang-zh" lang="zh-Hant">醫院可以把自身的潔淨塑膠廢料，製成度身訂造的義肢、牙科模型及手術練習模型。</span></p>
+        <a class="card-link" href="programmes.html#medical"><span class="lang-en">Medical programme</span><span class="lang-zh" lang="zh-Hant">醫療計劃</span> →</a>
+        </article>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="how">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="how"><span class="lang-en">From a bottle to a helping hand</span><span class="lang-zh" lang="zh-Hant">從一個膠樽，到一雙援手</span></h2>
+        <p><span class="lang-en">Six steps, all of them visible to the people taking part — nothing is shipped overseas to disappear.</span><span class="lang-zh" lang="zh-Hant">六個步驟，全部讓參與者親眼看見——沒有把廢料運到海外，眼不見為淨。</span></p>
+      </div>
+      
+      <ol class="flow">
+          <li>
+            <span class="flow-num" aria-hidden="true">01</span>
+            <h3><span class="lang-en">Collect</span><span class="lang-zh" lang="zh-Hant">收集</span></h3>
+            <p><span class="lang-en">Clean PET, PP and HDPE bottles arrive at our community points and hospital collection bins.</span><span class="lang-zh" lang="zh-Hant">潔淨的 PET、PP、HDPE 膠樽送到社區收集點及醫院回收箱。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">02</span>
+            <h3><span class="lang-en">Sort and clean</span><span class="lang-zh" lang="zh-Hant">分類清洗</span></h3>
+            <p><span class="lang-en">Volunteers check the plastic code, remove caps and labels, then wash and dry the material.</span><span class="lang-zh" lang="zh-Hant">義工核對塑膠編號、去除瓶蓋與標籤，再清洗及烘乾材料。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">03</span>
+            <h3><span class="lang-en">Process</span><span class="lang-zh" lang="zh-Hant">加工</span></h3>
+            <p><span class="lang-en">The plastic is shredded and processed into filament that our printers can use.</span><span class="lang-zh" lang="zh-Hant">塑膠被粉碎並加工成打印機可用的線材。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">04</span>
+            <h3><span class="lang-en">Print</span><span class="lang-zh" lang="zh-Hant">打印</span></h3>
+            <p><span class="lang-en">Workshop participants design and print something useful: a teaching model, a phone stand, a new grip for a walking stick.</span><span class="lang-zh" lang="zh-Hant">工作坊參加者設計並打印實用物件：教具、手機座、拐杖的新握把。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">05</span>
+            <h3><span class="lang-en">Give back</span><span class="lang-zh" lang="zh-Hant">回饋</span></h3>
+            <p><span class="lang-en">The finished object goes to a student, a resident or a patient — and the skills stay in the community.</span><span class="lang-zh" lang="zh-Hant">完成品送到學生、居民或病人手上，而技術就留在社區。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">06</span>
+            <h3><span class="lang-en">Return</span><span class="lang-zh" lang="zh-Hant">回用</span></h3>
+            <p><span class="lang-en">Failed prints and supports go back to the shredder, so the loop closes instead of ending in a bin.</span><span class="lang-zh" lang="zh-Hant">打印失敗的成品與支撐材料會送回粉碎步驟，讓循環閉合，而不是丟進垃圾桶。</span></p>
+          </li>
+      </ol>
+      </div>
+    </section>
+
+
+  <section class="section">
+    <div class="container container--narrow">
+      <blockquote class="big-quote">
+        <p><span class="lang-en">Technology should not be a privilege for the few. It should belong to the whole society.</span><span class="lang-zh" lang="zh-Hant">科技不應是少數人的特權，而應屬於整個社會。</span></p>
+        <cite><span class="lang-en">3RD Company — our core value</span><span class="lang-zh" lang="zh-Hant">3RD 公司——我們的核心價值</span></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container split">
+      <div>
+        <h2><span class="lang-en">Bring a workshop to your school, estate or hospital</span><span class="lang-zh" lang="zh-Hant">把工作坊帶到你的學校、屋邨或醫院</span></h2>
+        <p><span class="lang-en">We plan every session with the host. Tell us the size of the group, the age range and the dates you have in mind, and we will propose a format.</span><span class="lang-zh" lang="zh-Hant">每個工作坊都與主辦單位一起規劃。告訴我們人數、年齡組別和希望舉行的日期，我們會提出合適的形式。</span></p>
+      </div>
+      <div>
+        <p><a class="btn btn-primary" href="contact.html"><span class="lang-en">Start a conversation</span><span class="lang-zh" lang="zh-Hant">與我們聯絡</span></a></p>
+        <p><span class="lang-en">Or read how the recycling loop works on the</span><span class="lang-zh" lang="zh-Hant">你也可以先了解回收循環的運作：</span>
+          <a href="technology.html"><span class="lang-en">technology page</span><span class="lang-zh" lang="zh-Hant">技術頁面</span></a>.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">3RD Company</p>
+          <p class="footer-tagline"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></p>
+          <p class="footer-note"><span class="lang-en">A student project for GEL3027 — Entrepreneurship, innovation and national security education in the context of humanities.</span><span class="lang-zh" lang="zh-Hant">GEL3027「人文脈絡下的創業、創新與國家安全教育」學生專題習作。</span></p>
+        </div>
+
+        <nav data-aria-en="Footer" data-aria-zh="頁尾" aria-label="Footer">
+          <h2><span class="lang-en">Explore</span><span class="lang-zh" lang="zh-Hant">瀏覽</span></h2>
+          <ul>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact &amp; vision</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="accessibility.html"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡</span></h2>
+          <ul>
+            <li><a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><span class="lang-en">Kowloon, Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港九龍</span></li>
+            <li><span class="lang-en">Mon–Fri, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五 10:00–18:00（香港時間）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> 3RD Company. <span class="lang-en">All rights reserved.</span><span class="lang-zh" lang="zh-Hant">版權所有。</span></p>
+        <p><span class="lang-en">Your language, theme and text-size choices are saved in this browser only.</span><span class="lang-zh" lang="zh-Hant">你的語言、主題與字級選擇只會儲存在這個瀏覽器。</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <p class="sr-only" role="status" aria-live="polite" id="a11y-status"></p>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

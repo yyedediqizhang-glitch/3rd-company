@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light" data-size="100"
+      data-title-en="Technology & 3R — 3RD Company" data-title-zh="技術與 3R — 3RD 公司">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technology & 3R — 3RD Company</title>
+  <meta name="description" content="How 3D printing, plastic collection and the three Rs fit together: the six-step recycling loop, linear versus circular, and the limits of the technology.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Apply saved preferences before the first paint to avoid a flash. */
+    (function () {
+      var d = document.documentElement, p = {};
+      try { p = JSON.parse(localStorage.getItem("3rd-prefs") || "{}") || {}; } catch (e) { p = {}; }
+      var lang = p.lang === "zh" ? "zh" : "en";
+      var theme = (p.theme === "dark" || p.theme === "light") ? p.theme
+        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var sizes = [100, 110, 125, 140];
+      var size = sizes.indexOf(p.size) !== -1 ? p.size : 100;
+      d.setAttribute("data-lang", lang);
+      d.setAttribute("lang", lang === "zh" ? "zh-Hant" : "en");
+      d.setAttribute("data-theme", theme);
+      d.setAttribute("data-size", String(size));
+      d.style.fontSize = size + "%";
+      d.className += " js";
+      window.__3rd = { lang: lang, theme: theme, size: size };
+    })();
+  </script>
+</head>
+<body class="site">
+
+  <a class="skip-link" href="#main">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-zh" lang="zh-Hant">跳至主要內容</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="currentColor" opacity="0.13"/>
+            <path d="M24 9.5 38 17v14L24 38.5 10 31V17z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M10 17l14 7.5L38 17M24 24.5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <span class="brand-name">3RD Company</span>
+            <span class="brand-tag"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="lang-en">Menu</span><span class="lang-zh" lang="zh-Hant">選單</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-aria-en="Main menu" data-aria-zh="主選單" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html" aria-current="page"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="toolbar">
+        <div class="control-group" role="group" data-aria-en="Language" data-aria-zh="語言" aria-label="Language">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Language</span><span class="lang-zh" lang="zh-Hant">語言</span></span>
+          <button class="seg" type="button" data-lang-set="en" lang="en" aria-pressed="true">EN</button>
+          <button class="seg" type="button" data-lang-set="zh" lang="zh-Hant" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="control-group" role="group" data-aria-en="Text size" data-aria-zh="字級" aria-label="Text size">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級</span></span>
+          <button class="icon-btn" type="button" data-size-step="-1"
+                  data-aria-en="Smaller text" data-aria-zh="縮小字級" aria-label="Smaller text">A−</button>
+          <span class="size-value" data-size-value aria-hidden="true">100%</span>
+          <button class="icon-btn" type="button" data-size-step="1"
+                  data-aria-en="Larger text" data-aria-zh="放大字級" aria-label="Larger text">A+</button>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Display</span><span class="lang-zh" lang="zh-Hant">顯示</span></span>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="導覽路徑" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><span aria-current="page"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span class="lang-en">How it works</span><span class="lang-zh" lang="zh-Hant">運作方式</span></p>
+        <h1><span class="lang-en">Technology and the 3R loop</span><span class="lang-zh" lang="zh-Hant">技術與 3R 循環</span></h1>
+        <p class="lead"><span class="lang-en">Recycled plastic is not a lesser material. Sorted, cleaned and processed properly it prints well — and it keeps waste out of landfill.</span><span class="lang-zh" lang="zh-Hant">回收塑膠不是次一等的材料。只要分類、清洗、加工得宜，它一樣打印得好——同時讓廢物不必送去堆填區。</span></p>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="what">
+      <div class="container">
+
+      <div class="split split--wide-right">
+        <div>
+          <h2 id="what"><span class="lang-en">What 3D printing actually is</span><span class="lang-zh" lang="zh-Hant">三維打印到底是什麼</span></h2>
+          <p class="pill"><span class="lang-en">Additive manufacturing</span><span class="lang-zh" lang="zh-Hant">增材製造</span></p>
+        </div>
+        <div class="prose">
+          <p><span class="lang-en">It is a process in which successive layers of material are laid down under computer control to make a three-dimensional object. Nothing is cut away, so there is very little offcut waste — the object is built only where it is needed.</span><span class="lang-zh" lang="zh-Hant">這是一個在電腦控制下，逐層鋪上材料以製成立體物件的過程。整個過程沒有切削，因此幾乎沒有邊角廢料——物件只在需要的位置生成。</span></p>
+          <p><span class="lang-en">That makes it good for one-off parts, small batches and repairs. A grip for a walking stick, a replacement clip for a hospital trolley, a model of a heart for a biology lesson: these are cheap to print and expensive to tool up for.</span><span class="lang-zh" lang="zh-Hant">這使它適合單件製作、小批量生產和維修。拐杖握把、醫院手推車的替換扣件、生物課用的心臟模型——這些東西打印起來便宜，但要開模生產就很貴。</span></p>
+          <p><span class="lang-en">There are limits, and we would rather name them. Prints are slow compared with injection moulding, the choice of materials is narrower, and the strength of a part depends on how it is oriented on the bed. We design around those limits instead of pretending they do not exist.</span><span class="lang-zh" lang="zh-Hant">它也有局限，我們寧願說清楚：打印速度比注塑慢，可選材料較少，而零件的強度取決於它在打印床上的放置方向。我們按這些局限來設計，而不是假裝它們不存在。</span></p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="loop">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="loop"><span class="lang-en">The loop, step by step</span><span class="lang-zh" lang="zh-Hant">循環，一步一步</span></h2>
+        <p><span class="lang-en">Six steps from a used bottle to a finished object. Every one of them happens in Hong Kong.</span><span class="lang-zh" lang="zh-Hant">由一個用過的膠樽到一件完成品，共六個步驟，全部在香港發生。</span></p>
+      </div>
+      
+      <ol class="flow">
+          <li>
+            <span class="flow-num" aria-hidden="true">01</span>
+            <h3><span class="lang-en">Collect</span><span class="lang-zh" lang="zh-Hant">收集</span></h3>
+            <p><span class="lang-en">Community points, housing estates and hospital collection bins take in clean PET, PP and HDPE bottles.</span><span class="lang-zh" lang="zh-Hant">社區收集點、屋苑及醫院回收箱，接收潔淨的 PET、PP、HDPE 膠樽。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">02</span>
+            <h3><span class="lang-en">Sort</span><span class="lang-zh" lang="zh-Hant">分類</span></h3>
+            <p><span class="lang-en">Volunteers read the recycling code and reject anything mixed, dirty or unknown. Sorting is the step that decides quality.</span><span class="lang-zh" lang="zh-Hant">義工查看回收編號，剔除混合、污穢或來歷不明的塑膠。分類是決定質素的關鍵一步。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">03</span>
+            <h3><span class="lang-en">Shred</span><span class="lang-zh" lang="zh-Hant">粉碎</span></h3>
+            <p><span class="lang-en">Bottles are stripped of caps and labels, washed, dried and shredded into flakes.</span><span class="lang-zh" lang="zh-Hant">膠樽去除瓶蓋與標籤，清洗、烘乾，再粉碎成薄片。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">04</span>
+            <h3><span class="lang-en">Extrude</span><span class="lang-zh" lang="zh-Hant">製線</span></h3>
+            <p><span class="lang-en">Flakes are heated and drawn into filament of a consistent diameter, then spooled for the printer.</span><span class="lang-zh" lang="zh-Hant">薄片經加熱拉製成直徑一致的線材，再捲上線軸供打印機使用。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">05</span>
+            <h3><span class="lang-en">Print</span><span class="lang-zh" lang="zh-Hant">打印</span></h3>
+            <p><span class="lang-en">The printer lays the filament down layer by layer, following a design made in a workshop or a classroom.</span><span class="lang-zh" lang="zh-Hant">打印機依工作坊或課堂完成的設計，逐層鋪上線材。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">06</span>
+            <h3><span class="lang-en">Return</span><span class="lang-zh" lang="zh-Hant">回用</span></h3>
+            <p><span class="lang-en">Finished objects go to a student, a resident or a patient. Failed prints and supports go back into the shredder.</span><span class="lang-zh" lang="zh-Hant">完成品送到學生、居民或病人手上；打印失敗的成品與支撐材料，會送回粉碎步驟。</span></p>
+          </li>
+      </ol>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="compare">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="compare"><span class="lang-en">Linear and circular, side by side</span><span class="lang-zh" lang="zh-Hant">線性與循環，並列比較</span></h2>
+      </div>
+      <div class="table-wrap" role="region" data-aria-en="Comparison of linear and circular economy" data-aria-zh="線性經濟與循環經濟比較" aria-label="Comparison table" tabindex="0">
+        <table>
+          <caption><span class="lang-en">How the two models differ in our work</span><span class="lang-zh" lang="zh-Hant">兩種模式在我們工作中的分別</span></caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="lang-en">Question</span><span class="lang-zh" lang="zh-Hant">問題</span></th>
+              <th scope="col"><span class="lang-en">Linear economy</span><span class="lang-zh" lang="zh-Hant">線性經濟</span></th>
+              <th scope="col"><span class="lang-en">Circular economy (our model)</span><span class="lang-zh" lang="zh-Hant">循環經濟（我們的模式）</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="lang-en">Where material comes from</span><span class="lang-zh" lang="zh-Hant">材料從哪裡來</span></th>
+              <td><span class="lang-en">Newly extracted raw material</span><span class="lang-zh" lang="zh-Hant">新開採的原料</span></td>
+              <td><span class="lang-en">Collected plastic waste, sorted by type</span><span class="lang-zh" lang="zh-Hant">回收塑膠廢料，按種類分類</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="lang-en">How long a product lasts</span><span class="lang-zh" lang="zh-Hant">產品用多久</span></th>
+              <td><span class="lang-en">Until it breaks or goes out of fashion</span><span class="lang-zh" lang="zh-Hant">直到損壞或退流行</span></td>
+              <td><span class="lang-en">Repaired and re-printed to extend its life</span><span class="lang-zh" lang="zh-Hant">維修與重新打印，延長使用壽命</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="lang-en">What happens at the end</span><span class="lang-zh" lang="zh-Hant">最終如何處理</span></th>
+              <td><span class="lang-en">Discarded; often to landfill</span><span class="lang-zh" lang="zh-Hant">丟棄，多數送往堆填區</span></td>
+              <td><span class="lang-en">Returned as feedstock for the next print</span><span class="lang-zh" lang="zh-Hant">回收成為下一次打印的原料</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="lang-en">Who can make things</span><span class="lang-zh" lang="zh-Hant">誰可以生產</span></th>
+              <td><span class="lang-en">Factories, at large scale</span><span class="lang-zh" lang="zh-Hant">工廠，大規模生產</span></td>
+              <td><span class="lang-en">Schools, communities and hospitals, at small scale</span><span class="lang-zh" lang="zh-Hant">學校、社區與醫院，小規模生產</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="lang-en">Where the cost lands</span><span class="lang-zh" lang="zh-Hant">成本落在哪裡</span></th>
+              <td><span class="lang-en">On the environment, and later on the public</span><span class="lang-zh" lang="zh-Hant">落在環境，日後落在社會</span></td>
+              <td><span class="lang-en">On the collection and sorting system we run</span><span class="lang-zh" lang="zh-Hant">落在我們營運的收集與分類系統</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="three-r">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="three-r"><span class="lang-en">The three Rs, in practice</span><span class="lang-zh" lang="zh-Hant">三個 R，實際怎樣做</span></h2>
+        <p><span class="lang-en">Reduce, reuse and recycle are not slogans here. Each one describes a decision we make at a different point in a product’s life.</span><span class="lang-zh" lang="zh-Hant">在這裡，減用、重用、回收不是口號。每一個都代表我們在產品生命週期不同階段所作的決定。</span></p>
+      </div>
+      
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 9V3.5h10V9"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14.5h10v6H7z"/><path d="M17.5 12h.01"/></svg></span>
+          <h3><span class="lang-en">Reduce</span><span class="lang-zh" lang="zh-Hant">減用</span></h3>
+          <p><span class="lang-en">We reduce the consumption of natural resources from the very beginning — at the design and material-selection stage. Printing only where material is needed means less waste than cutting a part out of a block.</span><span class="lang-zh" lang="zh-Hant">我們從一開始就減少天然資源的消耗——在設計與選材階段。只在需要的位置打印，比從一整塊材料切削出零件浪費更少。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 0 1-13.4 5.8"/><path d="M4 12a8 8 0 0 1 13.4-5.8"/><path d="M17.7 2.8v3.9h-3.9"/><path d="M6.3 21.2v-3.9h3.9"/></svg></span>
+          <h3><span class="lang-en">Reuse</span><span class="lang-zh" lang="zh-Hant">重用</span></h3>
+          <p><span class="lang-en">3D printing extends the life of products. A worn grip or a broken bracket can be printed again, so a device is repaired instead of being thrown away and replaced.</span><span class="lang-zh" lang="zh-Hant">三維打印延長產品壽命。磨損的握把或斷裂的支架可以重新打印，器具因此得以維修，而不是丟棄再買。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4.6 3 7.6 7 9 4-1.4 7-4.4 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3><span class="lang-en">Recycle</span><span class="lang-zh" lang="zh-Hant">回收</span></h3>
+          <p><span class="lang-en">Printing material can be made from waste plastic, or combined with it. Our PET, PP and HDPE collections feed directly into the filament we print with.</span><span class="lang-zh" lang="zh-Hant">打印材料可以由廢塑膠製成，或與廢塑膠混合。我們收集的 PET、PP、HDPE，直接成為打印線材的原料。</span></p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="safety">
+      <div class="container">
+
+      <div class="split">
+        <div>
+          <h2 id="safety"><span class="lang-en">Safety and honest limits</span><span class="lang-zh" lang="zh-Hant">安全與誠實的局限</span></h2>
+          <p><span class="lang-en">Recycled material is not the same as virgin material every time. We test each batch and we tell partners what they are getting.</span><span class="lang-zh" lang="zh-Hant">回收材料每次都不等於全新材料。我們會測試每一批材料，並如實告訴夥伴他們拿到的是什麼。</span></p>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><span class="lang-en">Material traceability: every spool is labelled with the plastic type, the batch and the date it was processed.</span><span class="lang-zh" lang="zh-Hant">材料可追溯：每一軸線材都標明塑膠種類、批次與加工日期。</span></li>
+            <li><span class="lang-en">No food contact and no body contact unless the partner’s own safety process approves it.</span><span class="lang-zh" lang="zh-Hant">不用於接觸食物或用於身體接觸，除非合作夥伴本身的安全程序批准。</span></li>
+            <li><span class="lang-en">Ventilation and filtration when printing, because heating plastic releases fumes.</span><span class="lang-zh" lang="zh-Hant">打印時保持通風並使用過濾，因為加熱塑膠會釋放氣體。</span></li>
+            <li><span class="lang-en">Medical devices follow the hospital’s regulatory and sterilisation requirements, not our preferences.</span><span class="lang-zh" lang="zh-Hant">醫療器材依從醫院的法規與消毒要求，而不是我們的偏好。</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">3RD Company</p>
+          <p class="footer-tagline"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></p>
+          <p class="footer-note"><span class="lang-en">A student project for GEL3027 — Entrepreneurship, innovation and national security education in the context of humanities.</span><span class="lang-zh" lang="zh-Hant">GEL3027「人文脈絡下的創業、創新與國家安全教育」學生專題習作。</span></p>
+        </div>
+
+        <nav data-aria-en="Footer" data-aria-zh="頁尾" aria-label="Footer">
+          <h2><span class="lang-en">Explore</span><span class="lang-zh" lang="zh-Hant">瀏覽</span></h2>
+          <ul>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact &amp; vision</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="accessibility.html"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡</span></h2>
+          <ul>
+            <li><a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><span class="lang-en">Kowloon, Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港九龍</span></li>
+            <li><span class="lang-en">Mon–Fri, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五 10:00–18:00（香港時間）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> 3RD Company. <span class="lang-en">All rights reserved.</span><span class="lang-zh" lang="zh-Hant">版權所有。</span></p>
+        <p><span class="lang-en">Your language, theme and text-size choices are saved in this browser only.</span><span class="lang-zh" lang="zh-Hant">你的語言、主題與字級選擇只會儲存在這個瀏覽器。</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <p class="sr-only" role="status" aria-live="polite" id="a11y-status"></p>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

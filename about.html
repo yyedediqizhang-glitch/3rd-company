@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en" data-theme="light" data-size="100"
+      data-title-en="About us — 3RD Company" data-title-zh="關於我們 — 3RD 公司">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About us — 3RD Company</title>
+  <meta name="description" content="The story, the problem and the people behind 3RD Company: 3D printing combined with reduce, reuse and recycle in Hong Kong.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    /* Apply saved preferences before the first paint to avoid a flash. */
+    (function () {
+      var d = document.documentElement, p = {};
+      try { p = JSON.parse(localStorage.getItem("3rd-prefs") || "{}") || {}; } catch (e) { p = {}; }
+      var lang = p.lang === "zh" ? "zh" : "en";
+      var theme = (p.theme === "dark" || p.theme === "light") ? p.theme
+        : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      var sizes = [100, 110, 125, 140];
+      var size = sizes.indexOf(p.size) !== -1 ? p.size : 100;
+      d.setAttribute("data-lang", lang);
+      d.setAttribute("lang", lang === "zh" ? "zh-Hant" : "en");
+      d.setAttribute("data-theme", theme);
+      d.setAttribute("data-size", String(size));
+      d.style.fontSize = size + "%";
+      d.className += " js";
+      window.__3rd = { lang: lang, theme: theme, size: size };
+    })();
+  </script>
+</head>
+<body class="site">
+
+  <a class="skip-link" href="#main">
+    <span class="lang-en">Skip to main content</span>
+    <span class="lang-zh" lang="zh-Hant">跳至主要內容</span>
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-bar">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="currentColor" opacity="0.13"/>
+            <path d="M24 9.5 38 17v14L24 38.5 10 31V17z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M10 17l14 7.5L38 17M24 24.5v14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span>
+            <span class="brand-name">3RD Company</span>
+            <span class="brand-tag"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></span>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bars" aria-hidden="true"></span>
+          <span class="lang-en">Menu</span><span class="lang-zh" lang="zh-Hant">選單</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" data-aria-en="Main menu" data-aria-zh="主選單" aria-label="Main menu">
+          <ul>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><a href="about.html" aria-current="page"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="contact.html"><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡我們</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="toolbar">
+        <div class="control-group" role="group" data-aria-en="Language" data-aria-zh="語言" aria-label="Language">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Language</span><span class="lang-zh" lang="zh-Hant">語言</span></span>
+          <button class="seg" type="button" data-lang-set="en" lang="en" aria-pressed="true">EN</button>
+          <button class="seg" type="button" data-lang-set="zh" lang="zh-Hant" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="control-group" role="group" data-aria-en="Text size" data-aria-zh="字級" aria-label="Text size">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Text size</span><span class="lang-zh" lang="zh-Hant">字級</span></span>
+          <button class="icon-btn" type="button" data-size-step="-1"
+                  data-aria-en="Smaller text" data-aria-zh="縮小字級" aria-label="Smaller text">A−</button>
+          <span class="size-value" data-size-value aria-hidden="true">100%</span>
+          <button class="icon-btn" type="button" data-size-step="1"
+                  data-aria-en="Larger text" data-aria-zh="放大字級" aria-label="Larger text">A+</button>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label" aria-hidden="true"><span class="lang-en">Display</span><span class="lang-zh" lang="zh-Hant">顯示</span></span>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4.2"/>
+              <path d="M12 2.6v2.3M12 19.1v2.3M2.6 12h2.3M19.1 12h2.3M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.7 8.7 0 1 0 10.9 10.9Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="導覽路徑" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html"><span class="lang-en">Home</span><span class="lang-zh" lang="zh-Hant">首頁</span></a></li>
+            <li><span aria-current="page"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow"><span class="lang-en">Our story</span><span class="lang-zh" lang="zh-Hant">我們的故事</span></p>
+        <h1><span class="lang-en">About 3RD Company</span><span class="lang-zh" lang="zh-Hant">關於 3RD 公司</span></h1>
+        <p class="lead"><span class="lang-en">Our name carries the idea: 3R for reduce, reuse and recycle; 3D for printing. Put them together and a linear habit becomes a loop.</span><span class="lang-zh" lang="zh-Hant">我們的名字就是我們的想法：3R 代表減用、重用、回收；3D 代表三維打印。兩者結合，把「用完即棄」的習慣變成一個循環。</span></p>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="story">
+      <div class="container">
+
+      <div class="split split--wide-right">
+        <div>
+          <h2 id="story"><span class="lang-en">A technology that arrived at the right time</span><span class="lang-zh" lang="zh-Hant">一項來得正合時宜的技術</span></h2>
+        </div>
+        <div class="prose">
+          <p><span class="lang-en">3D printing lays down successive layers of material under computer control to build a three-dimensional object. A designer can turn a drawing into a prototype in hours instead of weeks. It is no longer a laboratory curiosity: the BBC has reported on two brothers who used 3D printers to make free mobility aids for toddlers.</span><span class="lang-zh" lang="zh-Hant">三維打印是在電腦控制下，逐層鋪上材料，建構出立體物件。設計師可以在數小時內把圖紙變成原型，而不必等上數星期。它已不再是實驗室裡的稀奇玩意：BBC 曾報道一對兄弟用三維打印機，免費為幼童製作行動輔助器具。</span></p>
+          <p><span class="lang-en">For many people the technology is still unfamiliar. For us, the attraction is specific: eco-friendly plastic materials, and a market that is still largely untapped in Hong Kong.</span><span class="lang-zh" lang="zh-Hant">對很多人來說，這項技術仍然陌生。對我們而言，吸引之處很具體：環保塑膠材料，以及香港仍然大致未被開發的市場。</span></p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="problem">
+      <div class="container">
+
+      <div class="split split--wide-right">
+        <div>
+          <h2 id="problem"><span class="lang-en">The problem we are working on</span><span class="lang-zh" lang="zh-Hant">我們正在處理的問題</span></h2>
+          <p class="pill"><span class="lang-en">Linear → circular</span><span class="lang-zh" lang="zh-Hant">線性 → 循環</span></p>
+        </div>
+        <div class="prose">
+          <p><span class="lang-en">Since the Industrial Revolution, the linear economy — take, make, waste — has shaped how things are produced. Material is extracted, used once, and discarded. The damage to land, water and air is often irreversible.</span><span class="lang-zh" lang="zh-Hant">自工業革命以來，線性經濟——開採、製造、丟棄——主導了產品的生產方式。材料被開採、使用一次，然後被丟棄。對土地、水源與空氣造成的破壞，往往不可逆轉。</span></p>
+          <p><span class="lang-en">We started 3RD Company because 3D printing suits a circular economy unusually well. It builds objects layer by layer, so it uses close to the material it needs. It can run on recycled plastic. And it works at a small scale, which means a school, an estate or a hospital can do it — not only a factory far away.</span><span class="lang-zh" lang="zh-Hant">我們創立 3RD 公司，是因為三維打印與循環經濟特別契合。它逐層建構物件，因此用料接近所需，浪費較少；它可以採用回收塑膠；而且它適合小規模運作，學校、屋邨或醫院都可以做，不必依賴遠方的工廠。</span></p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+  <section class="section">
+    <div class="container container--narrow">
+      <blockquote class="big-quote">
+        <p><span class="lang-en">Our goal is to use 3D printing so that everyone can enjoy the benefits of technology at low cost — and to make that technology part of a circular economy rather than a linear one.</span><span class="lang-zh" lang="zh-Hant">我們的目標，是運用三維打印，讓每個人都能以低廉的成本享受科技的好處；並且讓這項技術成為循環經濟的一部分，而不是線性經濟的延伸。</span></p>
+        <cite><span class="lang-en">Our goal</span><span class="lang-zh" lang="zh-Hant">我們的目標</span></cite>
+      </blockquote>
+    </div>
+  </section>
+
+
+    <section class="section" aria-labelledby="gaps">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="gaps"><span class="lang-en">Three gaps we found in Hong Kong</span><span class="lang-zh" lang="zh-Hant">我們在香港發現的三個缺口</span></h2>
+        <p><span class="lang-en">These gaps are the reason the company exists. They are also, honestly, the hardest part of the work.</span><span class="lang-zh" lang="zh-Hant">這三個缺口，就是這家公司存在的原因；也是工作上最困難的部分。</span></p>
+      </div>
+      
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3"/><circle cx="17.5" cy="9.5" r="2.4"/><path d="M3.5 19.5c0-3.1 2.4-5.3 5.5-5.3s5.5 2.2 5.5 5.3"/><path d="M16.2 14.6c2.4.3 4 2.1 4 4.9"/></svg></span>
+          <h3><span class="lang-en">Awareness</span><span class="lang-zh" lang="zh-Hant">認知</span></h3>
+          <p><span class="lang-en">3D printing is still unfamiliar to most people here. There are few local success stories to point to, and little public promotion of what the technology can do.</span><span class="lang-zh" lang="zh-Hant">三維打印對這裡大多數人仍然陌生。本地可供參考的成功案例不多，社會也少有推廣這項技術能做到什麼。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 0 1-13.4 5.8"/><path d="M4 12a8 8 0 0 1 13.4-5.8"/><path d="M17.7 2.8v3.9h-3.9"/><path d="M6.3 21.2v-3.9h3.9"/></svg></span>
+          <h3><span class="lang-en">A missing platform</span><span class="lang-zh" lang="zh-Hant">缺少平台</span></h3>
+          <p><span class="lang-en">Research, material supply, social need and environmental requirements rarely meet. Hong Kong has no shared platform connecting them, so good work stays isolated.</span><span class="lang-zh" lang="zh-Hant">研究技術、材料供應、社會需求與環保要求，彼此很少交匯。香港沒有一個共同的平台把它們連起來，好的工作因此各自為政。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4.6 3 7.6 7 9 4-1.4 7-4.4 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3><span class="lang-en">Safety and trust</span><span class="lang-zh" lang="zh-Hant">安全與信任</span></h3>
+          <p><span class="lang-en">Medical 3D printing raises questions about regulatory oversight and material safety. Users need to know what is safe to print — and what is not.</span><span class="lang-zh" lang="zh-Hant">醫療三維打印涉及法規監管與材料安全問題。使用者需要知道什麼可以安全打印，什麼不可以。</span></p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section section--alt" aria-labelledby="position">
+      <div class="container">
+
+      <div class="section-head">
+        <h2 id="position"><span class="lang-en">Where we stand</span><span class="lang-zh" lang="zh-Hant">我們的定位</span></h2>
+        <p><span class="lang-en">A short, honest look at what we are good at, what is in our favour, and what we still have to solve.</span><span class="lang-zh" lang="zh-Hant">誠實地看看我們擅長什麼、有什麼有利條件，以及還有什麼要解決。</span></p>
+      </div>
+      
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 9V3.5h10V9"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14.5h10v6H7z"/><path d="M17.5 12h.01"/></svg></span>
+          <h3><span class="lang-en">Our strength</span><span class="lang-zh" lang="zh-Hant">我們的優勢</span></h3>
+          <p><span class="lang-en">3D printing and the 3R principles reinforce each other: recycled plastic becomes printing material, and printing extends the life of products that would otherwise be replaced.</span><span class="lang-zh" lang="zh-Hant">三維打印與 3R 原則互相強化：回收塑膠成為打印材料，而打印則延長了原本要被替換的產品壽命。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.5 8.5 12 4l9.5 4.5L12 13z"/><path d="M6 10.6V15c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.4"/><path d="M21.5 8.5V14"/></svg></span>
+          <h3><span class="lang-en">Our opportunity</span><span class="lang-zh" lang="zh-Hant">我們的機遇</span></h3>
+          <p><span class="lang-en">The audience is broad — from young children to older adults — because environmental protection benefits everyone. The technology is also maturing: in 2021, 3D-printed artificial reefs were installed near Lantau Airport and shown to support marine life.</span><span class="lang-zh" lang="zh-Hant">受眾很廣，由幼童到長者，因為環境保護本身就對整體社會有益。技術亦日趨成熟：2021 年，東涌機場附近以三維打印製成的人工珊瑚礁，已被證實能支持海洋生態。</span></p>
+        </article>
+        <article class="card">
+          <span class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4.6 3 7.6 7 9 4-1.4 7-4.4 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3><span class="lang-en">Our challenge</span><span class="lang-zh" lang="zh-Hant">我們的挑戰</span></h3>
+          <p><span class="lang-en">Hong Kong lacks a cooperation and promotion platform. We are building one instead of waiting for one — connecting research, material supply, social need and environmental requirements.</span><span class="lang-zh" lang="zh-Hant">香港缺乏合作與推廣平台。我們選擇自己建立一個，而不是等待它出現——把研究、材料供應、社會需求與環保要求連在一起。</span></p>
+        </article>
+      </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" aria-labelledby="serve">
+      <div class="container">
+
+      <div class="split">
+        <div>
+          <h2 id="serve"><span class="lang-en">Who we serve</span><span class="lang-zh" lang="zh-Hant">我們服務的對象</span></h2>
+          <p><span class="lang-en">Our customers are the people who are under-served by existing technology and existing recycling schemes.</span><span class="lang-zh" lang="zh-Hant">我們的顧客，是現有科技與現有回收計劃都照顧不足的人。</span></p>
+          <p><span class="lang-en">That includes students in STEAM education, residents of public housing estates, hospitals and clinics, older people and disabled people who need affordable custom aids, and the university volunteers who run our workshops.</span><span class="lang-zh" lang="zh-Hant">包括 STEAM 教育中的學生、公共屋邨的居民、醫院與診所，以及需要可負擔度身訂造輔助器具的長者與殘疾人士；還有負責帶領工作坊的大學義工。</span></p>
+        </div>
+        <div>
+          <h2 id="outlook"><span class="lang-en">What comes next</span><span class="lang-zh" lang="zh-Hant">下一步</span></h2>
+          
+      <ol class="flow">
+          <li>
+            <span class="flow-num" aria-hidden="true">01</span>
+            <h3><span class="lang-en">Now — Hong Kong</span><span class="lang-zh" lang="zh-Hant">現在——香港</span></h3>
+            <p><span class="lang-en">Build a solid base in the local market: understand 3D printing, analyse demand and test the business model.</span><span class="lang-zh" lang="zh-Hant">在本土市場建立穩固基礎：深入了解三維打印，分析市場需求，測試商業模式。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">02</span>
+            <h3><span class="lang-en">Next — repeatable</span><span class="lang-zh" lang="zh-Hant">下一步——可複製</span></h3>
+            <p><span class="lang-en">Turn the model into a repeatable system, then reproduce it in cities where it can work, extending our reach beyond Hong Kong.</span><span class="lang-zh" lang="zh-Hant">把模式變成可複製的系統，然後在合適的城市重現，把影響力延伸到香港以外。</span></p>
+          </li>
+          <li>
+            <span class="flow-num" aria-hidden="true">03</span>
+            <h3><span class="lang-en">Later — a platform</span><span class="lang-zh" lang="zh-Hant">其後——平台</span></h3>
+            <p><span class="lang-en">Build a business ecosystem and run it as a platform, so more people can buy the things they need at lower prices.</span><span class="lang-zh" lang="zh-Hant">建立商業生態並以平台形式運作，讓更多人可以用更低的價錢買到他們需要的東西。</span></p>
+          </li>
+      </ol>
+        </div>
+      </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">3RD Company</p>
+          <p class="footer-tagline"><span class="lang-en">Tech for Good, People First</span><span class="lang-zh" lang="zh-Hant">科技向善，以人為本</span></p>
+          <p class="footer-note"><span class="lang-en">A student project for GEL3027 — Entrepreneurship, innovation and national security education in the context of humanities.</span><span class="lang-zh" lang="zh-Hant">GEL3027「人文脈絡下的創業、創新與國家安全教育」學生專題習作。</span></p>
+        </div>
+
+        <nav data-aria-en="Footer" data-aria-zh="頁尾" aria-label="Footer">
+          <h2><span class="lang-en">Explore</span><span class="lang-zh" lang="zh-Hant">瀏覽</span></h2>
+          <ul>
+            <li><a href="about.html"><span class="lang-en">About us</span><span class="lang-zh" lang="zh-Hant">關於我們</span></a></li>
+            <li><a href="programmes.html"><span class="lang-en">Programmes</span><span class="lang-zh" lang="zh-Hant">計劃項目</span></a></li>
+            <li><a href="technology.html"><span class="lang-en">Technology &amp; 3R</span><span class="lang-zh" lang="zh-Hant">技術與 3R</span></a></li>
+            <li><a href="impact.html"><span class="lang-en">Impact &amp; vision</span><span class="lang-zh" lang="zh-Hant">成效與願景</span></a></li>
+            <li><a href="accessibility.html"><span class="lang-en">Accessibility</span><span class="lang-zh" lang="zh-Hant">無障礙</span></a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh" lang="zh-Hant">聯絡</span></h2>
+          <ul>
+            <li><a href="mailto:hello@3rdcompany.hk">hello@3rdcompany.hk</a></li>
+            <li><span class="lang-en">Kowloon, Hong Kong</span><span class="lang-zh" lang="zh-Hant">香港九龍</span></li>
+            <li><span class="lang-en">Mon–Fri, 10:00–18:00 HKT</span><span class="lang-zh" lang="zh-Hant">星期一至五 10:00–18:00（香港時間）</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> 3RD Company. <span class="lang-en">All rights reserved.</span><span class="lang-zh" lang="zh-Hant">版權所有。</span></p>
+        <p><span class="lang-en">Your language, theme and text-size choices are saved in this browser only.</span><span class="lang-zh" lang="zh-Hant">你的語言、主題與字級選擇只會儲存在這個瀏覽器。</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <p class="sr-only" role="status" aria-live="polite" id="a11y-status"></p>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
