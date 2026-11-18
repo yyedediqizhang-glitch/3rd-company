@@ -13,6 +13,10 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
+# Public address of the published site (GitHub Pages). Used for Open Graph tags,
+# which need absolute URLs so that link previews work in chat apps.
+SITE_URL = "https://yyedediqizhang-glitch.github.io/3rd-company/"
+
 
 def L(en, zh):
     """Inline bilingual span pair (only one is visible at a time)."""
@@ -52,6 +56,17 @@ HEAD = """<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title_en}</title>
   <meta name="description" content="{desc}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="3RD Company">
+  <meta property="og:title" content="{title_en}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:url" content="{og_url}">
+  <meta property="og:image" content="{site_url}assets/img/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_HK">
+  <meta property="og:locale:alternate" content="zh_HK">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -1319,10 +1334,13 @@ add(
 # =====================================================================
 
 def render(p):
+    page_url = SITE_URL + ("" if p["filename"] == "index.html" else p["filename"])
     head = (
         HEAD.replace("{title_en}", p["title_en"])
         .replace("{title_zh}", p["title_zh"])
         .replace("{desc}", p["desc"])
+        .replace("{site_url}", SITE_URL)
+        .replace("{og_url}", page_url)
     )
     return (
         head

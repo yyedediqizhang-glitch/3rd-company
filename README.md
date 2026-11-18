@@ -3,7 +3,19 @@
 A seven-page, bilingual (English / 繁體中文) website for **3RD Company**, the social enterprise
 designed in the GEL3027 group report: 3D printing combined with reduce, reuse and recycle.
 
-No server, no framework, no internet connection needed. Open `index.html` in any modern browser.
+## Live site
+
+**https://yyedediqizhang-glitch.github.io/3rd-company/**
+
+Public, free and permanent. Hosted on GitHub Pages from the repository
+[`yyedediqizhang-glitch/3rd-company`](https://github.com/yyedediqizhang-glitch/3rd-company).
+Anyone with the link can open it on a phone or a laptop — no account, no app.
+
+To update the live site after editing, double-click **`publish.cmd`** (it commits and pushes; the
+site refreshes in about a minute).
+
+No server, no framework, no internet connection needed to preview it locally.
+Open `index.html` in any modern browser.
 
 ---
 
